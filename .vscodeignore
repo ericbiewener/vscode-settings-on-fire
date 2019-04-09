@@ -1,0 +1,16 @@
+.vscode
+.vscode-test
+artwork
+src
+test-workspaces
+tests
+.babelrc
+.eslintrc.json
+.gitignore
+compareSnapshotStructures
+TODO.md
+tsconfig.json
+*.vsix
+vandelay-js.js
+webpack.config.ts
+yarn-error.log

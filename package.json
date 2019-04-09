@@ -1,0 +1,104 @@
+{
+  "name": "settingsOnFire",
+  "displayName": "Settings on 🔥!",
+  "description": "Easily toggle between custom setting configurations",
+  "version": "2.2.0",
+  "publisher": "edb",
+  "author": "Eric Biewener",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ericbiewener/settings-on-fire"
+  },
+  "homepage": "https://github.com/ericbiewener/settings-on-fire/blob/master/README.md",
+  "bugs": {
+    "url": "https://github.com/ericbiewener/settings-on-fire/issues"
+  },
+  "categories": [
+    "Programming Languages",
+    "Snippets",
+    "Formatters",
+    "Other"
+  ],
+  "keywords": [
+    "multi-root ready",
+    "settings",
+    "manage",
+    "toggle"
+  ],
+  "icon": "logo.png",
+  "galleryBanner": {
+    "color": "#01263F",
+    "theme": "dark"
+  },
+  "activationEvents": [
+    "onCommand:settingsOnFire.toggleSettings"
+  ],
+  "engines": {
+    "vscode": "^1.31.0"
+  },
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "title": "Toggle Settings",
+        "command": "settingsOnFire.toggleSettings"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Settings on 🔥! Configuration",
+      "properties": {
+        "settingsOnFire.toggle": {
+          "type": "object",
+          "default": {},
+          "description": "Your toggle configurations."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "yarn run build",
+    "start": "NODE_ENV=development ./node_modules/.bin/webpack --config webpack.config.ts -w",
+    "build": "NODE_ENV=production ./node_modules/.bin/webpack --config webpack.config.ts",
+    "test": "yarn run compile && node ./node_modules/vscode/bin/test",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "prettier": "prettier-eslint --write \"**/*.ts\"",
+    "package": "vsce package --yarn",
+    "ext": "rm -rf ~/.vscode/extensions/edb.settingsOnFire-[0-9]* && rm -f *.vsix && yarn run package && code --install-extension *.vsix",
+    "vsce": "vsce publish --yarn"
+  },
+  "devDependencies": {
+    "@babel/core": "7.4.3",
+    "@babel/plugin-proposal-class-properties": "7.4.0",
+    "@babel/plugin-proposal-object-rest-spread": "7.4.3",
+    "@babel/preset-typescript": "7.3.3",
+    "@types/node": "11.13.2",
+    "@types/webpack": "4.4.27",
+    "@typescript-eslint/eslint-plugin": "1.6.0",
+    "@typescript-eslint/parser": "1.6.0",
+    "babel-loader": "8.0.5",
+    "babel-plugin-lodash": "3.3.4",
+    "eslint": "5.16.0",
+    "eslint-config-ericbiewener-typescript": "3.6.0",
+    "husky": "1.3.1",
+    "lint-staged": "8.1.5",
+    "prettier-eslint-cli": "4.7.1",
+    "ts-node": "8.0.3",
+    "typescript": "3.4.2",
+    "vscode": "1.1.33",
+    "webpack": "4.29.6",
+    "webpack-cli": "3.3.0"
+  },
+  "lint-staged": {
+    "**/*.ts": [
+      "prettier-eslint --prettier-last --write",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
+}

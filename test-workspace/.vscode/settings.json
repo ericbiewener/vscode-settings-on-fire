@@ -1,0 +1,47 @@
+{
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    ".serverless": true,
+    ".vscode": true,
+    "**/__pycache__": true,
+    "**/.serverless": true,
+    "**/dist": true,
+    "**/node_modules": true,
+    "yarn-error.log": true,
+    "yarn.lock": true,
+    "**/__tests__": true,
+    "**/__mocks__": true,
+    "**/__fixtures__": true,
+    "**/*.spec.js": true,
+    "**/tests": true
+  },
+  "settingsOnFire.toggle": {
+    "Array": {
+      "on": {
+        "emmet.excludeLanguages": [
+          "markdown",
+          "javascriptreact"
+        ],
+      },
+      "off": {
+        "emmet.excludeLanguages": [
+          "python",
+          "whoopy"
+        ],
+      },
+    },
+    "Simple value": {
+      "on": { "editor.fontSize": 16, },
+      "off": { "editor.fontSize": 12, },
+    },
+  },
+  "emmet.excludeLanguages": [
+    "python",
+    "whoopy"
+  ],
+  "editor.fontSize": 16
+}
