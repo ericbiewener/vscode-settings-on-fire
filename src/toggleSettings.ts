@@ -1,5 +1,5 @@
 import { ConfigurationTarget, ExtensionContext, window, workspace, QuickPickItem } from 'vscode'
-import { RichQuickPickItem, ToggleConfig } from './types'
+import { RichQuickPickItem, ToggleConfig, OnOff } from './types'
 
 const CONFIG_SECTION = 'settingsOnFire.toggle'
 
@@ -17,8 +17,9 @@ export async function toggleSettings(context: ExtensionContext) {
   const selection = await window.showQuickPick(items)
   if (!selection) return
 
-  const { name, state, store, configTarget } = selection
-  const settings = toggleConfig[name][state]
+  const { name, newState, store, configTarget } = selection
+  const settings = toggleConfig[name][newState]
+  delete settings._label
 
   for (const key in settings) {
     const val = settings[key]
@@ -39,7 +40,7 @@ export async function toggleSettings(context: ExtensionContext) {
       newConfig = val
     }
     config.update(key, newConfig, configTarget)
-    store.update(name, state)
+    store.update(name, newState)
   }
 }
 
@@ -74,13 +75,18 @@ function getQuickPickItems(context: ExtensionContext, toggleConfig: ToggleConfig
     const store =
       configTarget === ConfigurationTarget.Workspace ? context.workspaceState : context.globalState
 
-    const state = store.get(name) !== 'on' ? 'on' : 'off'
+    const currentState: OnOff = store.get(name) || 'off'
+    console.log(currentState)
+    const newState = currentState === 'on' ? 'off' : 'on'
+    console.log(newState)
+    const newConfig = toggleConfig[name][newState]
+    const description = newConfig._label || newState
 
     items.push({
       label: name,
-      description: state,
+      description,
       name,
-      state,
+      newState,
       configTarget,
       store,
     })

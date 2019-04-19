@@ -1,8 +1,8 @@
 {
-  "name": "settingsOnFire",
+  "name": "settings-on-fire",
   "displayName": "Settings on 🔥!",
   "description": "Easily toggle between custom setting configurations",
-  "version": "2.2.0",
+  "version": "1.0.0",
   "publisher": "edb",
   "author": "Eric Biewener",
   "license": "MIT",
@@ -15,20 +15,18 @@
     "url": "https://github.com/ericbiewener/settings-on-fire/issues"
   },
   "categories": [
-    "Programming Languages",
-    "Snippets",
-    "Formatters",
     "Other"
   ],
   "keywords": [
-    "multi-root ready",
     "settings",
-    "manage",
-    "toggle"
+    "configuration",
+    "settings management",
+    "configuration management",
+    "config"
   ],
   "icon": "logo.png",
   "galleryBanner": {
-    "color": "#01263F",
+    "color": "#111111",
     "theme": "dark"
   },
   "activationEvents": [
@@ -65,7 +63,7 @@
     "postinstall": "node ./node_modules/vscode/bin/install",
     "prettier": "prettier-eslint --write \"**/*.ts\"",
     "package": "vsce package --yarn",
-    "ext": "rm -rf ~/.vscode/extensions/edb.settingsOnFire-[0-9]* && rm -f *.vsix && yarn run package && code --install-extension *.vsix",
+    "ext": "rm -rf ~/.vscode/extensions/edb.settings-on-fire-[0-9]* && rm -f *.vsix && yarn run package && code --install-extension *.vsix",
     "vsce": "vsce publish --yarn"
   },
   "devDependencies": {
