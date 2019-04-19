@@ -76,9 +76,7 @@ function getQuickPickItems(context: ExtensionContext, toggleConfig: ToggleConfig
       configTarget === ConfigurationTarget.Workspace ? context.workspaceState : context.globalState
 
     const currentState: OnOff = store.get(name) || 'off'
-    console.log(currentState)
     const newState = currentState === 'on' ? 'off' : 'on'
-    console.log(newState)
     const newConfig = toggleConfig[name][newState]
     const description = newConfig._label || newState
 
