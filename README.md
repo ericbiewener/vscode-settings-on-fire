@@ -9,11 +9,9 @@ User Settings or your current Workspace settings. For example:
     "Color Theme": {
       "on": {
         "workbench.colorTheme": "Ayu Mirage"
-        // Any additional settings
       },
       "off": {
         "workbench.colorTheme": "Ayu Light"
-        // Any additional settings
       }
     },
     "Tests": {
@@ -24,7 +22,6 @@ User Settings or your current Workspace settings. For example:
           "**/__fixtures__": false,
           "**/*.spec.js": false,
         }
-        // Any additional settings
       },
       "off": {
         "files.exclude": {
@@ -33,7 +30,6 @@ User Settings or your current Workspace settings. For example:
           "**/__fixtures__": true,
           "**/*.spec.js": true,
         }
-        // Any additional settings
       }
     }
   }
@@ -41,7 +37,7 @@ User Settings or your current Workspace settings. For example:
 
 The keys `Color Theme` and `Tests` will appear in your command pallete:
 
-<img src="https://github.com/ericbiewener/settings-on-fire/tree/master/artwork/quickpick-onoff.png" />
+<img src="https://github.com/ericbiewener/vscode-settings-on-fire/blob/master/artwork/quickpick-onoff.png" />
 
 The "on" or "off" that you see in the screenshot indicates the state that the setting will be
 changed to if you select it. Before ever toggling a setting, it will be considered to be `off`.
@@ -58,16 +54,14 @@ do:
       "on": {
         "_label": "Dark",
         "workbench.colorTheme": "Ayu Mirage"
-        // Any additional settings
       },
       "off": {
         "_label": "Light",
         "workbench.colorTheme": "Ayu Light"
-        // Any additional settings
       }
 ```
 
-<img src="https://github.com/ericbiewener/settings-on-fire/tree/master/artwork/quickpick-labeled.png" />
+<img src="https://github.com/ericbiewener/vscode-settings-on-fire/blob/master/artwork/quickpick-labeled.png" />
 
 ## Merging vs Overwriting Settings
 Settings that are objects will be merged into existing settings, while any other type of value will
