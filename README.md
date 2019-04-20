@@ -1,12 +1,12 @@
 # Settings on 🔥!
 
 Define groups of settings to be easily toggled on and off. These may be defined in either global
-User Settings or your current Workspace settings. For example:
+User Settings or your current Workspace settings.
 
 ## Command
 Provides a `Toggle Settings` command that can be used to toggle groups of settings on and off.
 
-## Configuration
+## Configuration Example
 ```json
 "settingsOnFire.toggle": {
   "Color Theme": {
@@ -38,7 +38,7 @@ Provides a `Toggle Settings` command that can be used to toggle groups of settin
 }
 ```
 
-The keys `Color Theme` and `Tests` will appear in your command pallete:
+The keys `Color Theme` and `Tests` will appear in your command palette:
 
 <img src="https://raw.githubusercontent.com/ericbiewener/vscode-settings-on-fire/master/artwork/quickpick-onoff.png" />
 
