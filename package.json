@@ -8,11 +8,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ericbiewener/settings-on-fire"
+    "url": "https://github.com/ericbiewener/vscode-settings-on-fire"
   },
-  "homepage": "https://github.com/ericbiewener/settings-on-fire/blob/master/README.md",
+  "homepage": "https://github.com/ericbiewener/vscode-settings-on-fire/blob/master/README.md",
   "bugs": {
-    "url": "https://github.com/ericbiewener/settings-on-fire/issues"
+    "url": "https://github.com/ericbiewener/vscode-settings-on-fire/issues"
   },
   "categories": [
     "Other"

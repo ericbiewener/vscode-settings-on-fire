@@ -40,7 +40,7 @@ Provides a `Toggle Settings` command that can be used to toggle groups of settin
 
 The keys `Color Theme` and `Tests` will appear in your command pallete:
 
-<img src="https://github.com/ericbiewener/vscode-settings-on-fire/blob/master/artwork/quickpick-onoff.png" />
+<img src="https://raw.githubusercontent.com/ericbiewener/vscode-settings-on-fire/master/artwork/quickpick-onoff.png" />
 
 The "on" or "off" that you see in the screenshot indicates the state that the setting will be
 changed to if you select it. Before ever toggling a setting, it will be considered to be `off`.
@@ -67,7 +67,7 @@ do:
 }
 ```
 
-<img src="https://github.com/ericbiewener/vscode-settings-on-fire/blob/master/artwork/quickpick-labeled.png" />
+<img src="https://raw.githubusercontent.com/ericbiewener/vscode-settings-on-fire/master/artwork/quickpick-labeled.png" />
 
 ## Merging vs Overwriting Settings
 Settings that are objects will be merged into existing settings, while any other type of value will
