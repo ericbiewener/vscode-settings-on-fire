@@ -1,4 +1,4 @@
-import { ConfigurationTarget, ExtensionContext, window, workspace, QuickPickItem } from 'vscode'
+import { ConfigurationTarget, ExtensionContext, window, workspace } from 'vscode'
 import { RichQuickPickItem, ToggleConfig, OnOff } from './types'
 
 const CONFIG_SECTION = 'settingsOnFire.toggle'
@@ -19,9 +19,10 @@ export async function toggleSettings(context: ExtensionContext) {
 
   const { name, newState, store, configTarget } = selection
   const settings = toggleConfig[name][newState]
-  delete settings._label
 
   for (const key in settings) {
+    if (key === '_label') continue
+
     const val = settings[key]
     const currentConfig = configValueForTarget(key, configTarget)
     let newConfig
@@ -32,7 +33,7 @@ export async function toggleSettings(context: ExtensionContext) {
         newConfig = { ...currentConfig, ...val }
       } else {
         window.showErrorMessage(
-          'Settings on 🔥 error! Toggle configuration specified is a different type than the existing one.'
+          'Settings on 🔥 error! Toggle configuration specified is a different type than the existing one.',
         )
         return
       }
@@ -51,8 +52,8 @@ function configValueForTarget(configSection: string, target: ConfigurationTarget
   return target === ConfigurationTarget.Global
     ? data.globalValue
     : target === ConfigurationTarget.Workspace
-    ? data.workspaceValue
-    : data.workspaceFolderValue
+      ? data.workspaceValue
+      : data.workspaceFolderValue
 }
 
 function getConfigTargetForSection(configSection: string) {
@@ -69,7 +70,7 @@ function getQuickPickItems(context: ExtensionContext, toggleConfig: ToggleConfig
 
   for (const name in toggleConfig) {
     const configTarget = getConfigTargetForSection(
-      `${CONFIG_SECTION}.${name}`
+      `${CONFIG_SECTION}.${name}`,
     ) as ConfigurationTarget
 
     const store =
